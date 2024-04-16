@@ -63,7 +63,7 @@ function getToday(){
   async function getRate() {
     let rate = 0;
     let date = await getToday();
-    let data = await axios.get("https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=PEDuDguvC4GBdFFvGELsHpVngTEPR6Oz&searchdate=" + date +"&data=AP01")
+    let data = await axios.get("https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=" + process.env.GMAIL_PASS + "&searchdate=" + date +"&data=AP01")
     .then(async (res) => {
       console.log(res.data);
       for(let i=0;i<res.data.length;i++){
